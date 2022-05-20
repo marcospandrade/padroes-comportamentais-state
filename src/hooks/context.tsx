@@ -11,8 +11,12 @@ interface ContextoProviderProps {
 const Contexto = createContext<ContextoData>({} as ContextoData);
 
 function ContextoProvider({ children }: ContextoProviderProps) {
+    const rotasPossiveis = ['', 'dark', 'normal', 'cadastro'];
+
     function onChangeRota(rota: string) {
-        window.location.pathname = rota;
+        if (rotasPossiveis.includes(rota)) {
+            window.location.pathname = rota;
+        }
     }
 
     return (
